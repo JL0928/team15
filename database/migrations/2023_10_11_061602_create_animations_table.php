@@ -20,7 +20,8 @@ class CreateAnimationsTable extends Migration
             $table->string('orign')->comment('原作');
             $table->string('dir')->comment('導演');
             $table->integer('ep_num')->unsigned()->comment('集數')->default('12');
-            $table->integer('cp_id')->unsigned()->comment('動畫製作(外部鍵)');
+            $table->foreignID('cp_id')->comment('動畫製作(外部鍵)');
+            $table->foreign('cp_id')->references('id')->on('companies')->onDelete('cascade');
             $table->date('play_time')->comment('播出時間');
             $table->timestamps();
         });
