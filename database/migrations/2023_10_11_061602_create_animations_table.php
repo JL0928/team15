@@ -14,7 +14,7 @@ class CreateAnimationsTable extends Migration
     public function up()
     {
         Schema::create('animations', function (Blueprint $table) {
-            $table->id()->comment('編號');
+            $table->id()->comment('編號(主鍵)');
             $table->string('name')->comment('名稱');
             $table->string('type')->nullable()->comment('類型');
             $table->string('orign')->comment('原作');

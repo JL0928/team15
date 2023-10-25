@@ -14,7 +14,7 @@ class CreateCompaniesTable extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->id()->comment('編號');
+            $table->id()->comment('編號(主鍵)');
             $table->string('name')->comment('名稱');
             $table->date('create')->nullable()->comment('成立');
             $table->string('founder')->nullable()->comment('創辦人');
