@@ -14,11 +14,14 @@ class CreateAnimationsTable extends Migration
     public function up()
     {
         Schema::create('animations', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('type');
-            $table->string('orign');
-            $table->string('dir');
+            $table->id()->comment('編號');
+            $table->string('name')->comment('名稱');
+            $table->string('type')->nullable()->comment('類型');
+            $table->string('orign')->comment('原作');
+            $table->string('dir')->comment('導演');
+            $table->integer('ep_num')->unsigned()->comment('集數')->default('12');
+            $table->integer('cp_id')->unsigned()->comment('動畫製作(外部鍵)');
+            $table->date('play_time')->comment('播出時間');
             $table->timestamps();
         });
     }

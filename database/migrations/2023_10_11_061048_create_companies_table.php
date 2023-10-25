@@ -14,11 +14,12 @@ class CreateCompaniesTable extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('founder');
-            $table->string('head');
-            $table->string('address');
+            $table->id()->comment('編號');
+            $table->string('name')->comment('名稱');
+            $table->date('create')->nullable()->comment('成立');
+            $table->string('founder')->nullable()->comment('創辦人');
+            $table->string('head')->nullable()->comment('總部地址')->default('日本');
+            $table->string('address')->nullable()->comment('網址');
             $table->timestamps();
         });
     }
