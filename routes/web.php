@@ -17,6 +17,10 @@ use App\Http\Controllers\CompaniesController;
 |
 */
 
-Route::get('Animations',[AnimationsController::class,'index'])->name('Animations.index');
+Route::get('/', function(){
+    return redirect('Animation');
+});
 
-Route::get('Companies',[CompaniesController::class,'index'])->name('Companies.index');
+Route::get('Animation',[AnimationsController::class,'index'])->name('Animation.index');
+
+Route::get('Company',[CompaniesController::class,'index'])->name('Company.index');

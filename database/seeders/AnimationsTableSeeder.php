@@ -115,7 +115,7 @@ class AnimationsTableSeeder extends Seeder
     
      public function run()
     {
-        for ($i=0; $i<20; $i++)   // 隨機生成數
+        for ($i=0; $i<30; $i++)   // 隨機生成數
         {
             $name = $this->generateRandomName();
             $type = $this->generateRandomType();
@@ -130,7 +130,7 @@ class AnimationsTableSeeder extends Seeder
                 'orign'=>$orign,
                 'dir'=>$dir,
                 'ep_num'=>rand(6, 24),
-                'cp_id'=>rand(1, 12),
+                'cp_id'=>rand(1, 30),
                 'play_time'=>$play_time,
                 'created_at'=>$created_at,
                 'updated_at'=>$updated_at

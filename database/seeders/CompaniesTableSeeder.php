@@ -118,7 +118,7 @@ class CompaniesTableSeeder extends Seeder
 
     public function run()
     {
-        for ($i=0; $i<10; $i++)   // 隨機生成數
+        for ($i=0; $i<30; $i++)   // 隨機生成數
         {
             $name = $this->generateRandomName();
             $founder = $this->generateRandomFounder();

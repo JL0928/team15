@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Animations;
-use App\Models\Companies;
+use App\Models\Animation;
+use App\Models\Company;
 
 class CompaniesController extends Controller
 {
@@ -16,7 +16,7 @@ class CompaniesController extends Controller
     public function index()
     {
         //
-        return Companies::all()->toArray();
+        return Company::all()->toArray();
     }
 
     /**
