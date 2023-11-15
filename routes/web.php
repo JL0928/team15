@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnimationsController;
+use App\Http\Controllers\CompaniesController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('Animations',[AnimationsController::class,'index'])->name('Animations.index');
+
+Route::get('Companies',[CompaniesController::class,'index'])->name('Companies.index');
