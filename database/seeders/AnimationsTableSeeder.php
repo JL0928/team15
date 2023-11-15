@@ -130,7 +130,7 @@ class AnimationsTableSeeder extends Seeder
                 'orign'=>$orign,
                 'dir'=>$dir,
                 'ep_num'=>rand(6, 24),
-                'cp_id'=>rand(1, 30),
+                'cp_id'=>rand(1, 31),
                 'play_time'=>$play_time,
                 'created_at'=>$created_at,
                 'updated_at'=>$updated_at
