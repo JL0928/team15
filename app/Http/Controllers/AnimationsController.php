@@ -16,7 +16,8 @@ class AnimationsController extends Controller
     public function index()
     {
         //
-        return Animation::all()->toArray();
+        $p = Animation::all()->toArray();
+        return view('animations.index')->with('Animations',$p);
     }
 
     /**

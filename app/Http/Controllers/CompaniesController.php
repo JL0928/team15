@@ -16,7 +16,8 @@ class CompaniesController extends Controller
     public function index()
     {
         //
-        return Company::all()->toArray();
+        $p = Company::all()->toArray();
+        return view('companies.index')->with('Companies',$p);
     }
 
     /**
