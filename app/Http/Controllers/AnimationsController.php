@@ -15,8 +15,11 @@ class AnimationsController extends Controller
      */
     public function index()
     {
-        //
-        return Animation::all()->toArray();
+        //從 Model 拿資料
+        $p = Animation::all()->toArray();
+        //把資料給 view
+        //to-do
+        return view('animations.index')->with('Animations', $p);
     }
 
     /**

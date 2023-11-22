@@ -15,8 +15,11 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        //
-        return Company::all()->toArray();
+        //從 Model 拿資料
+        $p = Company::all()->toArray();
+        //把資料給 view
+        //to-do
+        return view('companies.index')->with('Companies', $p);
     }
 
     /**
