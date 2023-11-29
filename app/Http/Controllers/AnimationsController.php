@@ -48,7 +48,7 @@ class AnimationsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Animation::findOrFail($id)->toArray();
     }
 
     /**
@@ -59,7 +59,7 @@ class AnimationsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Animation::findOrFail($id)->toArray();
     }
 
     /**
