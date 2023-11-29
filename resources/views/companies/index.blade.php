@@ -1,8 +1,7 @@
-<html>
-    <head>
+@extends('app')
 
-    </head>
-    <body>
+@section('am_contents')
+
         <h1>列出製作公司</h1>
 <table>
     <tr>
@@ -31,5 +30,4 @@
         @endfor
 </table>
 
-    </body>
-</html>
+@endsection
