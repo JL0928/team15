@@ -51,7 +51,7 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-        //
+        return company::findOrFail($id)->toArray();
     }
 
     /**
@@ -62,7 +62,7 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return company::findOrFail($id)->toArray();
     }
 
     /**
