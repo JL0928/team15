@@ -1,10 +1,7 @@
-<html>
 
-<head>
-    <title>列出所有動畫</title>
-</head>
+@extends('app')
 
-<body>
+@section('animations_contents')
 <h1>列出所有動畫</h1>
 
 <table>
@@ -15,6 +12,7 @@
         <th>導演</th>
         <th>集數</th>
         <th>動畫製作</th>
+        <th>播出時間</th>
         <th>操作1</th>
         <th>操作3</th>
         <th>操作3</th>
@@ -36,6 +34,4 @@
     
 @endfor
 </table>
-
-</body>
-</html>
+@endsection

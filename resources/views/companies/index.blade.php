@@ -1,10 +1,7 @@
-<html>
 
-<head>
-    <title>列出所有公司</title>
-</head>
+@extends('app')
 
-<body>
+@section('animations_contents')
 <h1>列出所有公司</h1>
 
 <table>
@@ -33,6 +30,4 @@
     
 @endfor
 </table>
-
-</body>
-</html>
+@endsection
