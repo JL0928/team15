@@ -16,8 +16,8 @@ class AnimationsController extends Controller
     public function index()
     {
         //
-        $p = Animation::all()->toArray();
-        return view('animations.index')->with('Animations',$p);
+        $a = Animation::all()->toArray();
+        return view('animations.index')->with('Animations',$a);
     }
 
     /**
@@ -49,6 +49,7 @@ class AnimationsController extends Controller
      */
     public function show($id)
     {
+        return Animation::findOrFail($id)->toArray();
         //
     }
 
@@ -60,6 +61,7 @@ class AnimationsController extends Controller
      */
     public function edit($id)
     {
+        return Animation::findOrFail($id)->toArray();
         //
     }
 
