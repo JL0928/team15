@@ -11,6 +11,6 @@
 動畫名稱：{{ $animation->name }}<br/>
 動畫類型：{{ $animation->type }}<br/>
 動畫集數：{{ $animation->ep_num }}<br/>
-動畫製作：{{ $animation->cp_id }}<br/>
+動畫製作：{{ $animation->company->name }}<br/>
 播出時間：{{ $animation->play_time }}<br/>
 @endsection

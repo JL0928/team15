@@ -19,4 +19,9 @@ class Animation extends Model
         'play_time'
         
     ];
+
+    public function company()
+    {
+        return $this->belongsTo('App\Models\Company', 'cp_id', 'id');
+    }
 }

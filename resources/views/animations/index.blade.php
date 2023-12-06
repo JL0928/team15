@@ -31,7 +31,7 @@
         <td>{{ $animation->orign }} </td>
         <td>{{ $animation->dir }} </td>
         <td>{{ $animation->ep_num }} </td>
-        <td>{{ $animation->cp_id }} </td>
+        <td>{{ $animation->company->name }} </td>
         <td>{{ $animation->play_time }} </td>
         <td><a href="{{route('animations.show',['id' =>$animation->id ]) }}">顯示</a></td>
         <td><a href="{{route('animations.edit',['id' =>$animation->id ]) }}">修改</a></td>

@@ -52,8 +52,9 @@ class CompaniesController extends Controller
     public function show($id)
     {
         $company = Company::findOrFail($id);
+        $animations = $company->animations;
         // 把資料送給 view
-        return view('companies.show')->with('company', $company);
+        return view('companies.show', ['company'=>$company, 'animations'=>$animations]);
     }
 
     /**
