@@ -16,9 +16,9 @@ class CompaniesController extends Controller
     public function index()
     {
         //從Model拿資料
-        $c = Company::all()->toArray();
+        $companies = Company::all();
         //送到view
-        return view('companies.index')->with('Companies',$c);
+        return view('companies.index')->with('companies',$companies);
     }
 
     /**
@@ -50,8 +50,10 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-        return Company::findOrFail($id)->toArray();
-        //
+        $company = Company::findOrFail($id);
+        return view('companies.show')->with('company',$company);
+       //return Company::findOrFail($id)->toArray();
+       //
     }
 
     /**

@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title','動漫資訊網站 - 列出所有動漫')
+
+@section('animate_theme','動畫名稱')
+
 @section('animations_contents')
 <h1>列出所有動畫</h1>
 
@@ -16,21 +20,21 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-@for($i=0; $i<count($Animations); $i++)
+    @foreach($animations as $animation)
 
-    <tr>  
-        <td>{{ $Animations[$i]['name']}} </td>
-        <td>{{ $Animations[$i]['type']}} </td>
-        <td>{{ $Animations[$i]['orign']}} </td>
-        <td>{{ $Animations[$i]['dir']}} </td>
-        <td>{{ $Animations[$i]['ep_num']}} </td>
-        <td>{{ $Animations[$i]['cp_id']}} </td>
-        <td>{{ $Animations[$i]['play_time']}} </td>
-        <td><a href="{{route('animations.show',['id' =>$Animations[$i]['id']]) }}">顯示</a></td>
-        <td><a href="{{route('animations.edit',['id' =>$Animations[$i]['id']]) }}">修改</a></td>
-        <td>刪除</td>
-    </tr>
-    
-@endfor
+        <tr>  
+            <td>{{ $animation->name}} </td>
+            <td>{{ $animation-> type}} </td>
+            <td>{{ $animation-> orign}} </td>
+            <td>{{ $animation-> dir}} </td>
+            <td>{{ $animation-> ep_num}} </td>
+            <td>{{ $animation-> cp_id}} </td>
+            <td>{{ $animation-> play_time}} </td>
+            <td><a href="{{route('animations.show',['id' =>$animation -> id]) }}">顯示</a></td>
+            <td><a href="{{route('animations.edit',['id' =>$animation -> id]) }}">修改</a></td>
+            <td>刪除</td>
+        </tr>
+        
+    @endforeach
 </table>
 @endsection
