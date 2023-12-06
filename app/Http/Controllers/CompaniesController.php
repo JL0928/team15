@@ -50,7 +50,8 @@ class CompaniesController extends Controller
     public function show($id)
     {
         $company = Company::findOrFail($id);
-        return view('companies.show')->with('company' , $company);
+        $animations = $company->animations; 
+        return view('companies.show',['company'=>$company,'animations'=>$animations]);
     }
 
     /**

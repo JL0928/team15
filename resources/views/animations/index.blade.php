@@ -2,7 +2,7 @@
 
 @section('titel','動畫資訊 網站 - 列出所有動畫')
 
-@section('am_theme','動畫資訊')
+@section('am_theme','')
 
 @section('am_contents')
 
@@ -15,7 +15,7 @@
        <th>原作</th>
        <th>導演</th>
        <th>集數</th>
-       <th>動畫製作</th>
+       <th>製作公司</th>
        <th>播出時間</th>
        <th>操作1</th>
        <th>操作2</th>
@@ -31,7 +31,7 @@
             <td>{{$animation->orign }}</td>
             <td>{{$animation->dir }}</td>
             <td>{{$animation->ep_num}}</td>
-            <td>{{$animation->cp_id }}</td>
+            <td>{{$animation->company->name }}</td>
             <td>{{$animation->play_time}}</td>
             <td><a href="{{route('animations.show',['id'=>$animation->id]) }}">查看</a></td>
             <td><a href="{{route('animations.edit',['id'=>$animation->id]) }}">修改</a></td>
