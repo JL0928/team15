@@ -23,5 +23,5 @@ class Animation extends Model
     {
         return $this ->belongsTo('App\Models\Company','cp_id','id');
     }
-
+  
 }

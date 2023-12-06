@@ -30,8 +30,13 @@
             <td>{{$company->address }}</td>
             <td><a href="{{route('companies.show',['id'=>$company->id]) }}">查看</a></td>
             <td><a href="{{route('companies.edit',['id'=>$company->id]) }}">修改</a></td>
-            <td>刪除</td>
-
+            <td>
+                <form action="{{ url('/companies/delete', ['id' => $company->id]) }}" method="post">
+                    <input class="btn btn-default" type="submit" value="刪除" />
+                    @method('delete')
+                    @csrf
+                </form>
+            </td>
         </tr>
         @endforeach
 </table>

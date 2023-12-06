@@ -82,7 +82,10 @@ class AnimationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
-    }
+    
+        {
+        $animation = Animation::findOrFail($id);
+        $animation->delete();
+        return redirect('animations');
+        }    
 }
