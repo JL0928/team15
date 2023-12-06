@@ -15,8 +15,8 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        $p = Company::all()->toArray();
-        return view('companies.index')->with('Companies' , $p);
+        $companies = Company::all();
+        return view('companies.index')->with('companies' , $companies);
     }
 
 
@@ -49,7 +49,8 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-        return Company::findOrFail($id)->toArray();    
+        $company = Company::findOrFail($id);
+        return view('companies.show')->with('company' , $company);
     }
 
     /**

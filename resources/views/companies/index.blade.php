@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('titel','動畫資訊 網站 - 列出所有動畫')
+
+@section('am_theme')
+
 @section('am_contents')
 
         <h1>列出製作公司</h1>
@@ -14,20 +18,20 @@
        <th>操作2</th>
        <th>操作3</th>
     </tr>
-    @for($i=0; $i<count($Companies); $i++)
+    @foreach ($companies as $company)
 
         <tr>
-            <td>{{$Companies[$i]['id'] }}</td>
-            <td>{{$Companies[$i]['name'] }}</td>
-            <td>{{$Companies[$i]['founder'] }}</td>
-            <td>{{$Companies[$i]['head'] }}</td>
-            <td>{{$Companies[$i]['address'] }}</td>
-            <td><a href="{{route('companies.show',['id'=>$Companies[$i]['id']]) }}">查看</a></td>
-            <td><a href="{{route('companies.edit',['id'=>$Companies[$i]['id']]) }}">修改</a></td>
+            <td>{{$company->id }}</td>
+            <td>{{$company->name }}</td>
+            <td>{{$company->founder }}</td>
+            <td>{{$company->head }}</td>
+            <td>{{$company->address }}</td>
+            <td><a href="{{route('companies.show',['id'=>$company->id]) }}">查看</a></td>
+            <td><a href="{{route('companies.edit',['id'=>$company->id]) }}">修改</a></td>
             <td>刪除</td>
 
         </tr>
-        @endfor
+        @endforeach
 </table>
 
 @endsection
