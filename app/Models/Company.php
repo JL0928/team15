@@ -17,4 +17,7 @@ class Company extends Model
         'address'
         
     ];
+    public function animations(){
+        return $this->hasMany('App\Models\Animation','cp_id');
+    }
 }

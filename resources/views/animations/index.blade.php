@@ -9,6 +9,7 @@
 
 <table>
     <tr>
+        <th>編號</th>
         <th>名稱</th>
         <th>類型</th>
         <th>原作</th>
@@ -23,12 +24,13 @@
     @foreach($animations as $animation)
 
         <tr>  
+            <td>{{ $animation->id}} </td>
             <td>{{ $animation->name}} </td>
             <td>{{ $animation-> type}} </td>
             <td>{{ $animation-> orign}} </td>
             <td>{{ $animation-> dir}} </td>
             <td>{{ $animation-> ep_num}} </td>
-            <td>{{ $animation-> cp_id}} </td>
+            <td>{{ $animation-> company-> name}} </td>
             <td>{{ $animation-> play_time}} </td>
             <td><a href="{{route('animations.show',['id' =>$animation -> id]) }}">顯示</a></td>
             <td><a href="{{route('animations.edit',['id' =>$animation -> id]) }}">修改</a></td>
