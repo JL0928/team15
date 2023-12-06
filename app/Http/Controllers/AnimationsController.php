@@ -88,6 +88,8 @@ class AnimationsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $animation = Animation::findOrFail($id);
+        $animation->delete();
+        return redirect('animations');
     }
 }

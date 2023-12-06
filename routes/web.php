@@ -20,10 +20,19 @@ use App\Http\Controllers\CompaniesController;
 Route::get('/', function(){
     return redirect('animations');
 });
-
+//顯示所有
 Route::get('animations',[AnimationsController::class,'index'])->name('animations.index');
+//顯示單一
 Route::get('animations/{id}', [AnimationsController::class,'show'])->where('id', '[0-9]+')->name('animations.show');
+//修改單一
 Route::get('animations/{id}/edit', [AnimationsController::class,'edit'])->where('id', '[0-9]+')->name('animations.edit');
+//刪除單一
+Route::delete('animations/delete/{id}', [AnimationsController::class,'destroy'])->where('id', '[0-9]+')->name('animations.destroy');
+//顯示所有
 Route::get('companies',[CompaniesController::class,'index'])->name('companies.index');
+//顯示單一
 Route::get('companies/{id}', [CompaniesController::class,'show'])->where('id', '[0-9]+')->name('companies.show');
+//修改單一
 Route::get('companies/{id}/edit', [CompaniesController::class,'edit'])->where('id', '[0-9]+')->name('companies.edit');
+//刪除單一
+Route::delete('companies/delete/{id}', [CompaniesController::class,'destroy'])->where('id', '[0-9]+')->name('companies.destroy');
