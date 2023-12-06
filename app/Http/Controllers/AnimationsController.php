@@ -16,10 +16,10 @@ class AnimationsController extends Controller
     public function index()
     {
         //從 Model 拿資料
-        $p = Animation::all()->toArray();
+        $animations = Animation::all();
         //把資料給 view
         //to-do
-        return view('animations.index')->with('Animations', $p);
+        return view('animations.index')->with('animations', $animations);
     }
 
     /**
@@ -51,7 +51,10 @@ class AnimationsController extends Controller
      */
     public function show($id)
     {
-        return animation::findOrFail($id)->toArray();
+        // 從 Model 拿資料
+        $animation = Animation::findOrFail($id);
+        // 把資料送給 view
+        return view('animations.show')->with('animation', $animation);
     }
 
     /**
