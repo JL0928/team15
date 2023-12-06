@@ -20,4 +20,9 @@ class Company extends Model
     public function animations(){
         return $this->hasMany('App\Models\Animation','cp_id');
     }
+
+    public function delete(){
+        $this->animations()->delete();
+        return parent::delete();
+    }
 }
