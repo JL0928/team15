@@ -5,8 +5,10 @@
 @section('animate_theme','動畫名稱')
 
 @section('animations_contents')
-<h1>列出所有動畫</h1>
-
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    <a href="{{ route('animations.create') }}">新增動畫</a>
+    <a href="{{ route('animations.index') }}">所有動畫</a>
+</div>
 <table>
     <tr>
         <th>編號</th>
@@ -16,7 +18,7 @@
         <th>導演</th>
         <th>集數</th>
         <th>動畫製作</th>
-        <th>播出時間</th>
+        <th>首次播出時間</th>
         <th>操作1</th>
         <th>操作2</th>
         <th>操作3</th>
