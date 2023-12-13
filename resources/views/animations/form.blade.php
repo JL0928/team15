@@ -20,7 +20,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('cp_id', '動畫製作：') !!}
-    {!! Form::select('cp_id', $companies, $companySelected, ['class' => 'form-control']) !!}
+    <!-- 待設計一下拉式選單 -->
 </div>
 <div class="form-group">
     {!! Form::label('play_time', '播出時間：') !!}
