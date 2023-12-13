@@ -32,6 +32,8 @@ Route::get('animations/create',[AnimationsController::class,'create'])->name('an
 Route::get('animations/{id}/edit',[AnimationsController::class,'edit'])->where('id','[0-9]+')->name('animations.edit');
 //修改動畫資料
 Route::patch('animations/update/{id}',[AnimationsController::class,'update'])->where('id','[0-9]+')->name('animations.update');
+//儲存新增動畫資料
+Route::post('animations/store',[AnimationsController::class,'store'])->where('id','[0-9]+')->name('animations.store');
 
 
 
@@ -47,3 +49,5 @@ Route::get('companies/create',[CompaniesController::class,'create'])->name('comp
 Route::get('companies/{id}/edit',[CompaniesController::class,'edit'])->where('id','[0-9]+')->name('companies.edit');
 //修改公司資料
 Route::patch('companies/update/{id}',[CompaniesController::class,'update'])->where('id','[0-9]+')->name('companies.update');
+//儲存新增公司資料
+Route::post('companies/store',[CompaniesController::class,'store'])->where('id','[0-9]+')->name('companies.store');

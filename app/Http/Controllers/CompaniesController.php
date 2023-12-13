@@ -39,7 +39,21 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input("name");
+        $create = $request->input("create");
+        $founder = $request->input("founder");
+        $head = $request->input("head");
+        $address = $request->input("address");
+
+        Company::create([
+            'name'=>$name,
+            'create'=>$create,
+            'founder'=>$founder,
+            'head'=>$head,
+            'address'=>$address
+        ]);
+
+        return redirect('companies');
     }
 
     /**
@@ -78,7 +92,16 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $company = Company::findOrFail($id);
+
+        $company-> name = $request->input('name');
+        $company-> create = $request->input('create');
+        $company-> founder = $request->input('founder');
+        $company-> head = $request->input('head');
+        $company-> address = $request->input('address');
+        $company->save();
+
+        return redirect('companies');
     }
 
     /**

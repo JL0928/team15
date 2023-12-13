@@ -28,7 +28,8 @@ class AnimationsController extends Controller
      */
     public function create()
     {
-        return view('animations.create');
+        $companies = Company::orderBy('companies.id','asc')->pluck('companies.name','companies.id');
+        return view('animations.create', ['companies'=>$companies, 'companySelected' => null]);
     }
 
     /**
@@ -39,7 +40,24 @@ class AnimationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $cp_id = $request->input('cp_id');
+        $type = $request->input('type');
+        $orign = $request->input('orign');
+        $dir = $request->input('dir');
+        $ep_num = $request->input('ep_num');
+        $play_time = $request->input('play_time');
+
+        $animation = Animation::create([
+            'name'=>$name,
+            'cp_id'=>$cp_id,
+            'type'=>$type,
+            'orign'=>$orign,
+            'dir'=>$dir,
+            'ep_num'=>$ep_num,
+            'play_time'=>$play_time
+        ]);
+        return redirect('animations');
     }
 
     /**
@@ -65,7 +83,9 @@ class AnimationsController extends Controller
     public function edit($id)
     {
         $animation = Animation::findOrFail($id);
-        return view('animations.edit',['animation' =>$animation]);
+        $companies = Company::orderBy('companies.id','asc')->pluck('companies.name','companies.id');
+        $selected_tags = $animation->company->id;
+        return view('animations.edit',['animation' =>$animation,'companies'=>$companies,'companySelected' => $selected_tags]);
         //
     }
 
@@ -78,7 +98,19 @@ class AnimationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $animation = Animation::findOrFail($id);
+
+        $animation -> name = $request->input('name');
+        $animation -> cp_id = $request->input('cp_id');
+        $animation -> type = $request->input('type');
+        $animation -> orign = $request->input('orign');
+        $animation -> dir = $request->input('dir');
+        $animation -> ep_num = $request->input('ep_num');
+        $animation -> play_time = $request->input('play_time');
+        $animation->save();
+
+        return redirect('animations');
+
     }
 
     /**
