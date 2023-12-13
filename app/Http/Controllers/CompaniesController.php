@@ -29,7 +29,7 @@ class CompaniesController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
     }
 
     /**
@@ -65,7 +65,8 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
-        return company::findOrFail($id)->toArray();
+        $company = company::findOrFail($id);
+        return view('companies.edit', ['company' =>$company]);
     }
 
     /**

@@ -29,7 +29,7 @@ class AnimationsController extends Controller
      */
     public function create()
     {
-        //
+        return view('animations.create');
     }
 
     /**
@@ -65,7 +65,8 @@ class AnimationsController extends Controller
      */
     public function edit($id)
     {
-        return animation::findOrFail($id)->toArray();
+        $animation = animation::findOrFail($id);
+        return view('animations.edit', ['animation' =>$animation]);
     }
 
     /**

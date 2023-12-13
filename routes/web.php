@@ -28,6 +28,8 @@ Route::get('animations/{id}', [AnimationsController::class,'show'])->where('id',
 Route::get('animations/{id}/edit', [AnimationsController::class,'edit'])->where('id', '[0-9]+')->name('animations.edit');
 //刪除單一
 Route::delete('animations/delete/{id}', [AnimationsController::class,'destroy'])->where('id', '[0-9]+')->name('animations.destroy');
+//新增表單
+Route::get('animations/create', [AnimationsController::class,'create'])->name('animations.create');
 //顯示所有
 Route::get('companies',[CompaniesController::class,'index'])->name('companies.index');
 //顯示單一
@@ -36,3 +38,5 @@ Route::get('companies/{id}', [CompaniesController::class,'show'])->where('id', '
 Route::get('companies/{id}/edit', [CompaniesController::class,'edit'])->where('id', '[0-9]+')->name('companies.edit');
 //刪除單一
 Route::delete('companies/delete/{id}', [CompaniesController::class,'destroy'])->where('id', '[0-9]+')->name('companies.destroy');
+//新增表單
+Route::get('companies/create', [CompaniesController::class,'create'])->name('companies.create');
