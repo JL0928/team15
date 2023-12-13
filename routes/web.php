@@ -32,6 +32,7 @@ Route::get('animations/create', [AnimationsController::class, 'create'])->name('
 
 Route::patch('animations/update/{id}', [AnimationsController::class, 'update'])->where('id', '[0-9]+')->name('animations.update');
 
+Route::post('animations/store', [AnimationsController::class,'store'])->where('id', '[0-9]+')->name('animations.store');
 
 
 Route::get('companies', [CompaniesController::class, 'index'])->name('companies.index');
@@ -45,3 +46,5 @@ Route::delete('companies/delete/{id}', [CompaniesController::class, 'destroy'])-
 Route::get('companies/create', [CompaniesController::class, 'create'])->name('companies.create');
 
 Route::patch('companies/update/{id}', [CompaniesController::class, 'update'])->where('id', '[0-9]+')->name('companies.update');
+
+Route::post('companies/store', [CompaniesController::class,'store'])->where('id', '[0-9]+')->name('companies.store');

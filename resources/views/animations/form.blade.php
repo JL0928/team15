@@ -30,7 +30,7 @@
 
 <div class="form-group">
     {!! Form::label('cp_id', '動畫製作：') !!}
-    {!! Form::text('cp_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('cp_id',$companies ,$companySelected, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
