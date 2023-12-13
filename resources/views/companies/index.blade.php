@@ -6,7 +6,10 @@
 @section('animations_theme','動畫公司')
 
 @section('animations_contents')
-<h1>列出所有公司</h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-1">
+    <a href="{{ route('companies.create') }}">新增公司</a>
+    <a href="{{ route('companies.index') }}">所有公司</a>
+</div>
 
 <table>
     <tr>
