@@ -28,6 +28,8 @@ Route::get('animations/{id}', [AnimationsController::class,'show'])->where('id',
 Route::get('animations/{id}/edit', [AnimationsController::class,'edit'])->where('id', '[0-9]+')->name('animations.edit');
 //修改動畫
 Route::patch('animations/update/{id}', [AnimationsController::class,'update'])->where('id', '[0-9]+')->name('animations.update');
+//儲存動畫
+Route::post('animations/store', [AnimationsController::class,'store'])->where('id', '[0-9]+')->name('animations.store');
 //刪除單一
 Route::delete('animations/delete/{id}', [AnimationsController::class,'destroy'])->where('id', '[0-9]+')->name('animations.destroy');
 //新增表單
@@ -40,6 +42,8 @@ Route::get('companies/{id}', [CompaniesController::class,'show'])->where('id', '
 Route::get('companies/{id}/edit', [CompaniesController::class,'edit'])->where('id', '[0-9]+')->name('companies.edit');
 //修改公司
 Route::patch('companies/update/{id}', [CompaniesController::class,'update'])->where('id', '[0-9]+')->name('companies.update');
+//儲存公司
+Route::post('companies/store', [CompaniesController::class,'store'])->where('id', '[0-9]+')->name('companies.store');
 //刪除單一
 Route::delete('companies/delete/{id}', [CompaniesController::class,'destroy'])->where('id', '[0-9]+')->name('companies.destroy');
 //新增表單
