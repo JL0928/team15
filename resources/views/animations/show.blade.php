@@ -2,7 +2,7 @@
 
 @section('titel','動畫資訊 網站 - 列出所有動畫')
 
-@section('am_theme','您所選取的動畫')
+@section('am_theme','')
 
 @section('am_contents')
 

@@ -28,6 +28,11 @@ Route::get('animations/{id}/edit', [AnimationsController::class, 'edit'])->where
 
 Route::delete('animations/delete/{id}', [AnimationsController::class, 'destroy'])->where('id', '[0-9]+')->name('animations.destroy');
 
+Route::get('animations/create', [AnimationsController::class, 'create'])->name('animations.create');
+
+Route::patch('animations/update/{id}', [AnimationsController::class, 'update'])->where('id', '[0-9]+')->name('animations.update');
+
+
 
 Route::get('companies', [CompaniesController::class, 'index'])->name('companies.index');
 
@@ -36,3 +41,7 @@ Route::get('companies/{id}', [CompaniesController::class, 'show'])->where('id', 
 Route::get('companies/{id}/edit', [CompaniesController::class, 'edit'])->where('id', '[0-9]+')->name('companies.edit');
 
 Route::delete('companies/delete/{id}', [CompaniesController::class, 'destroy'])->where('id', '[0-9]+')->name('companies.destroy');
+
+Route::get('companies/create', [CompaniesController::class, 'create'])->name('companies.create');
+
+Route::patch('companies/update/{id}', [CompaniesController::class, 'update'])->where('id', '[0-9]+')->name('companies.update');

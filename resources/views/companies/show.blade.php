@@ -2,7 +2,7 @@
 
 @section('titel','動畫資訊 網站 - 列出製作公司')
 
-@section('am_theme','您所選取的公司')
+@section('am_theme','')
 
 @section('am_contents')
         <h1>您所選取的公司</h1><br/>

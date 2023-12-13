@@ -1,12 +1,16 @@
 @extends('app')
 
-@section('titel','動畫資訊 網站 - 列出所有動畫')
+@section('titel','動畫資訊 網站 - 列出所有製作公司')
 
-@section('am_theme','公司資訊')
+@section('am_theme','')
 
 @section('am_contents')
 
-        <h1>列出製作公司</h1>
+        <h1>列出所有製作公司</h1>
+        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+        <a href="{{ route('companies.create') }}">新增公司</a>
+        <a href="{{ route('companies.index') }}">所有公司</a>
+        </div>
 <table>
     <tr>
        <th>編號</th>
