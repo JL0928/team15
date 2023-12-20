@@ -1,9 +1,4 @@
 <div class="form-group">
-    {!! Form::label('id', '編號：') !!}
-    {!! Form::text('id', null, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
     {!! Form::label('name', '動畫名稱：') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>

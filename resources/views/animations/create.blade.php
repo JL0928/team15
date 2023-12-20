@@ -7,6 +7,8 @@
 @section('am_contents')
 
 @section('am_contents')
+
+@include('message.list')
     {!! Form::open(['url' => 'animations/store'] ) !!}
     @include('animations.form',['submitButtonText'=>"新增動畫資料"])
     {!! Form::close() !!}

@@ -7,6 +7,8 @@
 @section('am_contents')
 
 @section('am_contents')
+
+@include('message.list')
     {!! Form::open(['url' => 'companies/store'] ) !!}
     @include('companies.form',['submitButtonText'=>"新增公司資料"])
     {!! Form::close() !!}
