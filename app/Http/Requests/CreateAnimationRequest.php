@@ -24,10 +24,10 @@ class CreateAnimationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|string|min:1|max:191',
+            'name'=>'required|string|min:1|max:200',
             'type'=>'nullable',
-            'orign'=>'required|string|min:2|max:191',
-            'dir'=>'required|string|min:2|max:191',
+            'orign'=>'required|string|min:2|max:200',
+            'dir'=>'required|string|min:2|max:200',
             'ep_num'=>'required|numeric|min:1',
             'cp_id'=>'required',
             'play_time'=>'nullable'
