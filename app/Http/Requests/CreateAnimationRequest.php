@@ -44,6 +44,7 @@ class CreateAnimationRequest extends FormRequest
             "dir.required" => "導演名為「必填」項目",
             "dir.min" => "導演名稱至少2個字元",
             "ep_num.required" => "集數為「必填」項目",
+            "ep_num.numeric" => "集數請填數字",
             "ep_num.min" => "集數至少1集以上",
             "cp_id.required" => "公司編號為「必填」項目"
         ];
