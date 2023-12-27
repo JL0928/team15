@@ -23,6 +23,14 @@ Route::get('/', function(){
 //顯示所有
 Route::get('animations',[AnimationsController::class,'index'])->name('animations.index');
 //顯示單一
+Route::get('animations/springseason',[AnimationsController::class,'springseason'])->name('animations.springseason');
+//顯示單一
+Route::get('animations/summerseason',[AnimationsController::class,'summerseason'])->name('animations.summerseason');
+//顯示單一
+Route::get('animations/fallseason',[AnimationsController::class,'fallseason'])->name('animations.fallseason');
+//顯示單一
+Route::get('animations/winterseason',[AnimationsController::class,'winterseason'])->name('animations.winterseason');
+//顯示單一
 Route::get('animations/{id}', [AnimationsController::class,'show'])->where('id', '[0-9]+')->name('animations.show');
 //修改單一
 Route::get('animations/{id}/edit', [AnimationsController::class,'edit'])->where('id', '[0-9]+')->name('animations.edit');
@@ -34,6 +42,7 @@ Route::post('animations/store', [AnimationsController::class,'store'])->where('i
 Route::delete('animations/delete/{id}', [AnimationsController::class,'destroy'])->where('id', '[0-9]+')->name('animations.destroy');
 //新增表單
 Route::get('animations/create', [AnimationsController::class,'create'])->name('animations.create');
+
 //顯示所有
 Route::get('companies',[CompaniesController::class,'index'])->name('companies.index');
 //顯示單一

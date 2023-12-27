@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder\strpos;
 
 class Animation extends Model
 {
@@ -23,5 +24,12 @@ class Animation extends Model
     public function company()
     {
         return $this->belongsTo('App\Models\Company', 'cp_id', 'id');
+    }
+
+    public function scopeseason($query, $start, $end)
+    {
+        return $query->whereMonth('play_time', ">=", $start)
+                    ->whereMonth('play_time', "<=", $end)
+                    ->orderBy('play_time', 'asc');
     }
 }

@@ -9,6 +9,10 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-1">
     <a href="{{ route('animations.create') }}">新增動畫</a>
     <a href="{{ route('animations.index') }}">所有動畫</a>
+    <a href="{{ route('animations.springseason') }}">春季動畫</a>
+    <a href="{{ route('animations.summerseason') }}">夏季季動畫</a>
+    <a href="{{ route('animations.fallseason') }}">秋季動畫</a>
+    <a href="{{ route('animations.winterseason') }}">冬季動畫</a>
 </div>
 
 <table>

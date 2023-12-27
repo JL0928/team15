@@ -23,6 +23,30 @@ class AnimationsController extends Controller
         return view('animations.index')->with('animations', $animations);
     }
 
+    public function springseason()
+    {
+        $animations = animation::season(3,5)->get();
+        return view('animations.index')->with('animations', $animations);
+    }
+
+    public function summerseason()
+    {
+        $animations = animation::season(6,8)->get();
+        return view('animations.index')->with('animations', $animations);
+    }
+
+    public function fallseason()
+    {
+        $animations = animation::season(9,11)->get();
+        return view('animations.index')->with('animations', $animations);
+    }
+
+    public function winterseason()
+    {
+        $animations = animation::season(12,2)->get();
+        return view('animations.index')->with('animations', $animations);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
