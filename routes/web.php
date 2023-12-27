@@ -22,6 +22,13 @@ Route::get('/', function () {
 
 Route::get('animations', [AnimationsController::class, 'index'])->name('animations.index');
 
+Route::get('animations/springseason',[AnimationsController::class,'springseason'])->name('animations.springseason');
+Route::get('animations/summerseason',[AnimationsController::class,'summerseason'])->name('animations.summerseason');
+Route::get('animations/fallseason',[AnimationsController::class,'fallseason'])->name('animations.fallseason');
+Route::get('animations/winterseason',[AnimationsController::class,'winterseason'])->name('animations.winterseason');
+
+Route::get('animations/type', [AnimationsController::class, 'type'])->name('animations.type');
+
 Route::get('animations/{id}', [AnimationsController::class, 'show'])->where('id', '[0-9]+')->name('animations.show');
 
 Route::get('animations/{id}/edit', [AnimationsController::class, 'edit'])->where('id', '[0-9]+')->name('animations.edit');

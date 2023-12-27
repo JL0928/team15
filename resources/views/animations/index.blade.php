@@ -10,6 +10,10 @@
         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
         <a href="{{ route('animations.create') }}">新增動畫</a>
         <a href="{{ route('animations.index') }}">所有動畫</a>
+        <a href="{{ route('animations.springseason') }}">春季</a>
+        <a href="{{ route('animations.summerseason') }}">夏季</a>
+        <a href="{{ route('animations.fallseason') }}">秋季</a>
+        <a href="{{ route('animations.winterseason') }}">冬季</a>
 <table>
     <tr>
        <th>編號</th>
@@ -43,6 +47,11 @@
                     <input class="btn btn-default" type="submit" value="刪除" />
                     @method('delete')
                     @csrf
+                </form>
+                <form action="{{ url('animations/type') }}" method='GET'>
+                     {!! Form::label('typ', '選取類型:') !!}
+                    {!! Form::select('typ', $type, $selectedGenre,['class' => 'form-control']) !!}
+                 <input class ="btn btn-default" type="submit" value="查詢" />
                 </form>
             </td>
         </tr>
