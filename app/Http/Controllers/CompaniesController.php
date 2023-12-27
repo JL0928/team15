@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Models\Animation;
 use App\Models\Company;
+use App\Http\Requests\CreateCompanyRequest;
 
 class CompaniesController extends Controller
 {
@@ -38,7 +39,7 @@ class CompaniesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCompanyRequest $request)
     {
         $name = $request -> input('name');
         $create = $request -> input('create');
@@ -88,7 +89,7 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateCompanyRequest $request, $id)
     {
         $company = Company::findOrFail($id);
 

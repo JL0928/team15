@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Models\Animation;
 use App\Models\Company;
+use App\Http\Requests\CreateAnimationRequest;
 
 class AnimationsController extends Controller
 {
@@ -29,8 +30,8 @@ class AnimationsController extends Controller
      */
     public function create()
     {
-        $company = Company::orderBy('teams.id', 'asc')->pluck('companies.name', 'companies.id');
-        return view('animations.create',['animations'=>$animations, 'companySelected' => null]);
+        $companies = Company::orderBy('companies.id', 'asc')->pluck('companies.name', 'companies.id');
+        return view('animations.create',['companies'=>$companies, 'companySelected' => null]);
     }
 
     /**
@@ -39,7 +40,7 @@ class AnimationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateAnimationRequest $request)
     {
         $name = $request->input('name');
         $type = $request->input('type');
@@ -96,7 +97,7 @@ class AnimationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateAnimationRequest $request, $id)
     {
         $animation = Animation::findOrFail($id);
 
