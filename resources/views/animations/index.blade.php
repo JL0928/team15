@@ -10,9 +10,15 @@
     <a href="{{ route('animations.create') }}">新增動畫</a>
     <a href="{{ route('animations.index') }}">所有動畫</a>
     <a href="{{ route('animations.springseason') }}">春季動畫</a>
-    <a href="{{ route('animations.summerseason') }}">夏季季動畫</a>
+    <a href="{{ route('animations.summerseason') }}">夏季動畫</a>
     <a href="{{ route('animations.fallseason') }}">秋季動畫</a>
     <a href="{{ route('animations.winterseason') }}">冬季動畫</a>
+    <form action="{{ url('animations/type') }}" method='POST'>
+        {!! Form::label('type', '選取位置：') !!}
+        {!! Form::select('type', $types, ['class' => 'form-control']) !!}
+        <input class="btn btn-default" type="submit" value="查詢" />
+        @csrf
+    </form> 
 </div>
 
 <table>

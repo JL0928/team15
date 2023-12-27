@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Animation;
 use App\Models\Company;
 use App\Http\Requests\CreateAnimationRequest;
+use Illuminate\Http\Request;
 
 class AnimationsController extends Controller
 {
@@ -18,9 +19,24 @@ class AnimationsController extends Controller
     {
         //從 Model 拿資料
         $animations = Animation::all();
+        $types = Animation::allTypes()->pluck('animations.type', 'animations.type');
         //把資料給 view
         //to-do
-        return view('animations.index')->with('animations', $animations);
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
+    }
+
+    public function type()
+    {
+        $animations = Animation::type()->get();
+        $types = Animation::allTypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
+    }
+
+    public function types(Request $request)
+    {
+        $animations = Animation::type($request->input('type'))->get();
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types'=>$types]);
     }
 
     public function springseason()
@@ -43,7 +59,7 @@ class AnimationsController extends Controller
 
     public function winterseason()
     {
-        $animations = animation::season(12,2)->get();
+        $animations = animation::season(1,2)->get();
         return view('animations.index')->with('animations', $animations);
     }
 

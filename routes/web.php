@@ -30,6 +30,8 @@ Route::get('animations/summerseason',[AnimationsController::class,'summerseason'
 Route::get('animations/fallseason',[AnimationsController::class,'fallseason'])->name('animations.fallseason');
 //顯示單一
 Route::get('animations/winterseason',[AnimationsController::class,'winterseason'])->name('animations.winterseason');
+//選定類別
+Route::post('animations/type', [AnimationsController::class,'type'])->name('animations.type');
 //顯示單一
 Route::get('animations/{id}', [AnimationsController::class,'show'])->where('id', '[0-9]+')->name('animations.show');
 //修改單一

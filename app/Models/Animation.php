@@ -32,4 +32,14 @@ class Animation extends Model
                     ->whereMonth('play_time', "<=", $end)
                     ->orderBy('play_time', 'asc');
     }
+
+    public function scopeAlltypes($query)
+    { 
+        return $query->select('type')->groupBy('type');
+    }
+
+    public function scopePosition($query, $type)
+    {
+        return $query->where('type', '=', $type);
+    }
 }
