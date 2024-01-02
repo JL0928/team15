@@ -28,6 +28,6 @@ class Company extends Model
     
     public function scopeYears($query,$years)
     {
-        return $query->whereYear('create','<=',$years);
+        return $query->whereYear('create','<=',$years)->orderBy('create','asc');
     }
 }

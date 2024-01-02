@@ -27,7 +27,7 @@ class Animation extends Model
 
     public function scopeSeason($query,$M_start,$M_end)
     {
-        return $query->whereMonth('play_time',">=",$M_start)->whereMonth('play_time',"<=",$M_end);
+        return $query->whereMonth('play_time',">=",$M_start)->whereMonth('play_time',"<=",$M_end)->orderBy('play_time','asc');
     }
 
     public function scopeSeasonSP($query,$M_start,$M_end)
