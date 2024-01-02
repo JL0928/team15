@@ -24,4 +24,16 @@ class Animation extends Model
 
         return $this->belongsTo('App\Models\Company','cp_id','id');
     }
+
+    public function scopeSeason($query,$M_start,$M_end)
+    {
+        return $query->whereMonth('play_time',">=",$M_start)->whereMonth('play_time',"<=",$M_end);
+    }
+
+    public function scopeSeasonSP($query,$M_start,$M_end)
+    {
+        return $query->whereMonth('play_time',">=",$M_start)->orwhereMonth('play_time',"<=",$M_end)->orderBy('play_time','asc');
+
+    }
+    
 }

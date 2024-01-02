@@ -34,6 +34,12 @@ Route::get('animations/{id}/edit',[AnimationsController::class,'edit'])->where('
 Route::patch('animations/update/{id}',[AnimationsController::class,'update'])->where('id','[0-9]+')->name('animations.update');
 //儲存新增動畫資料
 Route::post('animations/store',[AnimationsController::class,'store'])->where('id','[0-9]+')->name('animations.store');
+//顯示四季動畫
+Route::get('animations/spring_season',[AnimationsController::class,'spring_season'])->name('animations.spring_season'); //春
+Route::get('animations/summer_season',[AnimationsController::class,'summer_season'])->name('animations.summer_season'); //夏
+Route::get('animations/fall_season',[AnimationsController::class,'fall_season'])->name('animations.fall_season');       //秋
+Route::get('animations/winter_season',[AnimationsController::class,'winter_season'])->name('animations.winter_season'); //冬
+
 
 
 
@@ -51,3 +57,5 @@ Route::get('companies/{id}/edit',[CompaniesController::class,'edit'])->where('id
 Route::patch('companies/update/{id}',[CompaniesController::class,'update'])->where('id','[0-9]+')->name('companies.update');
 //儲存新增公司資料
 Route::post('companies/store',[CompaniesController::class,'store'])->where('id','[0-9]+')->name('companies.store');
+//顯示10年以上的公司
+Route::get('companies/up10years',[CompaniesController::class,'up10years'])->name('companies.up10years');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Animation;
 use App\Models\Company;
 use App\Http\Requests\CreateAnimationRequest;
+use Illuminate\Http\Request;
 
 class AnimationsController extends Controller
 {
@@ -18,6 +19,35 @@ class AnimationsController extends Controller
         //從Model拿資料
         $animations = Animation::all();
         //送到view
+        return view('animations.index')->with('animations',$animations);
+    }
+
+    public function spring_season()
+    {   
+        //get data from model
+        $animations = Animation::Season(3,5)->get();
+        //take date to view
+        return view('animations.index')->with('animations',$animations);
+    }
+    public function summer_season()
+    {   
+        //get data from model
+        $animations = Animation::Season(6,8)->get();
+        //take date to view
+        return view('animations.index')->with('animations',$animations);
+    }
+    public function fall_season()
+    {   
+        //get data from model
+        $animations = Animation::Season(9,11)->get();
+        //take date to view
+        return view('animations.index')->with('animations',$animations);
+    }
+    public function winter_season()
+    {   
+        //get data from model
+        $animations = Animation::SeasonSP(12,2)->get();
+        //take date to view
         return view('animations.index')->with('animations',$animations);
     }
 

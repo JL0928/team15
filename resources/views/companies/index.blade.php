@@ -8,6 +8,7 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('companies.create') }}">新增公司</a>
     <a href="{{ route('companies.index') }}">所有公司</a>
+    <a href="{{ route('companies.up10years') }}">成立10年以上的公司</a>
 </div>
 <table>
     <tr>

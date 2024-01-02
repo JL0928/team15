@@ -25,4 +25,9 @@ class Company extends Model
         $this->animations()->delete();
         return parent::delete();
     }
+    
+    public function scopeYears($query,$years)
+    {
+        return $query->whereYear('create','<=',$years);
+    }
 }
