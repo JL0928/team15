@@ -124,6 +124,8 @@ class AnimationsController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+
         $animation = Animation::findOrFail($id);
         $companies = Company::orderBy('companies.id','asc')->pluck('companies.name','companies.id');
         $selected_tags = $animation->company->id;

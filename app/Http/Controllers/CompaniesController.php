@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Animation;
 use App\Models\Company;
 use App\Http\Requests\CreateCompanyRequest;
+use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
 {
@@ -85,6 +86,8 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+
         $company = Company::findOrFail($id);
         return view('companies.edit', ['company'=>$company]);
     }
