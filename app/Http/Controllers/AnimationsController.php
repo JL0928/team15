@@ -25,14 +25,7 @@ class AnimationsController extends Controller
         return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
-    public function type()
-    {
-        $animations = Animation::type()->get();
-        $types = Animation::allTypes()->pluck('animations.type', 'animations.type');
-        return view('animations.index', ['animations' => $animations, 'types' => $types]);
-    }
-
-    public function types(Request $request)
+    public function type(Request $request)
     {
         $animations = Animation::type($request->input('type'))->get();
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
@@ -42,25 +35,29 @@ class AnimationsController extends Controller
     public function springseason()
     {
         $animations = animation::season(3,5)->get();
-        return view('animations.index')->with('animations', $animations);
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     public function summerseason()
     {
         $animations = animation::season(6,8)->get();
-        return view('animations.index')->with('animations', $animations);
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     public function fallseason()
     {
         $animations = animation::season(9,11)->get();
-        return view('animations.index')->with('animations', $animations);
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     public function winterseason()
     {
-        $animations = animation::season(1,2)->get();
-        return view('animations.index')->with('animations', $animations);
+        $animations = animation::seasonSP(12,2)->get();
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     /**
