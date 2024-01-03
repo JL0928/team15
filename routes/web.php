@@ -23,11 +23,13 @@ Route::get('/', function () {
 Route::get('animations', [AnimationsController::class, 'index'])->name('animations.index');
 
 Route::get('animations/springseason',[AnimationsController::class,'springseason'])->name('animations.springseason');
+//顯示單一
 Route::get('animations/summerseason',[AnimationsController::class,'summerseason'])->name('animations.summerseason');
+//顯示單一
 Route::get('animations/fallseason',[AnimationsController::class,'fallseason'])->name('animations.fallseason');
+//顯示單一
 Route::get('animations/winterseason',[AnimationsController::class,'winterseason'])->name('animations.winterseason');
-
-Route::get('animations/type', [AnimationsController::class, 'type'])->name('animations.type');
+//顯示單一
 
 Route::get('animations/{id}', [AnimationsController::class, 'show'])->where('id', '[0-9]+')->name('animations.show');
 

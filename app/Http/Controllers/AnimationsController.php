@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Models\Animation;
 use App\Models\Company;
 use App\Http\Requests\CreateAnimationRequest;
@@ -16,11 +16,9 @@ class AnimationsController extends Controller
      */
     public function index()
     {
-        $animations = Animation::paginate(10);
-        $genres = Animation::allGenres()->pluck('animations.type', 'animations.type');
-        return view('animations.index', ['animations' => $animations, 'types'=>$genres,'selectedType' => null]);
+        $animations = Animation::all();
+        return view('animations.index')->with('animations' , $animations);
     }
-
     public function springseason()
     {
         $animations = animation::season(3,5)->get();
@@ -41,7 +39,7 @@ class AnimationsController extends Controller
 
     public function winterseason()
     {
-        $animations = animation::season(12,02)->get();
+        $animations = animation::season(12,2)->get();
         return view('animations.index')->with('animations', $animations);
     }
 
