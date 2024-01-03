@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Animation;
 use App\Models\Company;
 use App\Http\Requests\CreateAnimationRequest;
+use Illuminate\Http\Request;
 
 class AnimationsController extends Controller
 {
@@ -16,31 +17,47 @@ class AnimationsController extends Controller
      */
     public function index()
     {
+        //從 Model 拿資料
         $animations = Animation::all();
-        return view('animations.index')->with('animations' , $animations);
+        $types = Animation::allTypes()->pluck('animations.type', 'animations.type');
+        //把資料給 view
+        //to-do
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
+
+    public function type(Request $request)
+    {
+        $animations = Animation::type($request->input('type'))->get();
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types'=>$types]);
+    }
+
     public function springseason()
     {
         $animations = animation::season(3,5)->get();
-        return view('animations.index')->with('animations', $animations);
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     public function summerseason()
     {
         $animations = animation::season(6,8)->get();
-        return view('animations.index')->with('animations', $animations);
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     public function fallseason()
     {
         $animations = animation::season(9,11)->get();
-        return view('animations.index')->with('animations', $animations);
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     public function winterseason()
     {
-        $animations = animation::season_OR(12,2)->get();
-        return view('animations.index')->with('animations', $animations);
+        $animations = animation::seasonSP(12,2)->get();
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     /**
@@ -50,8 +67,8 @@ class AnimationsController extends Controller
      */
     public function create()
     {
-        $companies = company::orderBy('companies.id','asc')->pluck('companies.name','companies.id');
-        return view('animations.create',['companies' =>$companies,'companySelected'=> null]);
+        $companies = Company::orderBy('companies.id', 'asc')->pluck('companies.name', 'companies.id');
+        return view('animations.create',['companies'=>$companies, 'companySelected' => null]);
     }
 
     /**
@@ -64,21 +81,20 @@ class AnimationsController extends Controller
     {
         $name = $request->input('name');
         $type = $request->input('type');
-        $orign = $request->input('orign');   
-        $dir = $request->input('dir'); 
+        $orign = $request->input('orign');
+        $dir = $request->input('dir');
         $ep_num = $request->input('ep_num');
         $cp_id = $request->input('cp_id');
         $play_time = $request->input('play_time');
 
-    $animation = Animation::create([
-        'name' => $name,
-        'type' => $type,
-        'orign' => $orign,
-        'dir' => $dir,
-        'ep_num' => $ep_num,
-        'cp_id' => $cp_id,
-        'play_time' => $play_time]);
-        
+        $animation = Animation::create([
+            'name' => $name,
+            'type' => $type,
+            'orign' => $orign,
+            'dir' => $dir,
+            'ep_num' => $ep_num,
+            'cp_id' => $cp_id,
+            'play_time' => $play_time]);
         return redirect('animations');
     }
 
@@ -90,8 +106,10 @@ class AnimationsController extends Controller
      */
     public function show($id)
     {
+        // 從 Model 拿資料
         $animation = Animation::findOrFail($id);
-        return view('animations.show')->with('animation' , $animation);
+        // 把資料送給 view
+        return view('animations.show')->with('animation', $animation);
     }
 
     /**
@@ -102,10 +120,11 @@ class AnimationsController extends Controller
      */
     public function edit($id)
     {
-        $animation = Animation::findOrFail($id);
-        $companies = company::orderBy('companies.id','asc')->pluck('companies.name','companies.id');
+        $animation = animation::findOrFail($id);
+        $companies = Company::orderBy('companies.id', 'asc')->pluck('companies.name', 'companies.id');
         $selected_tags = $animation->company->id;
-        return view('animations.edit',['animation' =>$animation, 'companies'=>$companies,'companySelected'=>$selected_tags]);
+        return view('animations.edit', ['animation' =>$animation, 'companies' => $companies, 'companySelected' => $selected_tags]);
+        
     }
 
     /**
@@ -118,6 +137,7 @@ class AnimationsController extends Controller
     public function update(CreateAnimationRequest $request, $id)
     {
         $animation = Animation::findOrFail($id);
+
         $animation->name = $request->input('name');
         $animation->type = $request->input('type');
         $animation->orign = $request->input('orign');
@@ -137,10 +157,9 @@ class AnimationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    
-        {
+    {
         $animation = Animation::findOrFail($id);
         $animation->delete();
         return redirect('animations');
-        }    
+    }
 }

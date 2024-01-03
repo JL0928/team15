@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Models\Animation;
 use App\Models\Company;
 use App\Http\Requests\CreateCompanyRequest;
@@ -16,10 +16,12 @@ class CompaniesController extends Controller
      */
     public function index()
     {
+        //從 Model 拿資料
         $companies = Company::all();
-        return view('companies.index')->with('companies' , $companies);
+        //把資料給 view
+        //to-do
+        return view('companies.index')->with('companies', $companies);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -44,14 +46,14 @@ class CompaniesController extends Controller
         $founder = $request -> input('founder');
         $head = $request -> input('head');
         $address = $request -> input('address');
-
+        
         company::create([
             'name' => $name,
             'create' => $create,
-            'founder'=>$founder,
+            'founder' => $founder,
             'head' => $head,
             'address' => $address]);
-            return redirect('companies');
+        return redirect('company');
     }
 
     /**
@@ -63,8 +65,9 @@ class CompaniesController extends Controller
     public function show($id)
     {
         $company = Company::findOrFail($id);
-        $animations = $company->animations; 
-        return view('companies.show',['company'=>$company,'animations'=>$animations]);
+        $animations = $company->animations;
+        // 把資料送給 view
+        return view('companies.show', ['company'=>$company, 'animations'=>$animations]);
     }
 
     /**
@@ -75,8 +78,8 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
-        $company = Company::findOrFail($id);
-        return view('companies.edit', ['company'=>$company]);
+        $company = company::findOrFail($id);
+        return view('companies.edit', ['company' =>$company]);
     }
 
     /**
@@ -89,12 +92,14 @@ class CompaniesController extends Controller
     public function update(CreateCompanyRequest $request, $id)
     {
         $company = Company::findOrFail($id);
+
         $company->name = $request->input('name');
         $company->create = $request->input('create');
         $company->founder = $request->input('founder');
         $company->head = $request->input('head');
         $company->address = $request->input('address');
         $company->save();
+
         return redirect('companies');
     }
 
@@ -106,10 +111,8 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
-        
         $company = Company::findOrFail($id);
         $company->delete();
         return redirect('companies');
-            
     }
 }

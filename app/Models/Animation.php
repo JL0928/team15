@@ -13,17 +13,19 @@ class Animation extends Model
     protected $fillable = [
         'name',
         'type',
-        'orign',
+        'orgin',
         'dir',
         'ep_num',
         'cp_id',
         'play_time'
         
     ];
+
     public function company()
     {
-        return $this ->belongsTo('App\Models\Company','cp_id','id');
+        return $this->belongsTo('App\Models\Company', 'cp_id', 'id');
     }
+
     public function scopeseason($query, $start, $end)
     {
         return $query->whereMonth('play_time', ">=", $start)
@@ -31,10 +33,20 @@ class Animation extends Model
                     ->orderBy('play_time', 'asc');
     }
 
-    public function scopeseason_OR($query, $start, $end)
-    { 
+    public function scopeseasonSP($query, $start, $end)
+    {
         return $query->whereMonth('play_time', ">=", $start)
                     ->orwhereMonth('play_time', "<=", $end)
                     ->orderBy('play_time', 'asc');
+    }
+
+    public function scopeAlltypes($query)
+    { 
+        return $query->select('type')->groupBy('type');
+    }
+
+    public function scopeType($query, $type)
+    {
+        return $query->where('type', '=', $type);
     }
 }
