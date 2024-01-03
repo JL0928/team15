@@ -39,7 +39,7 @@ class AnimationsController extends Controller
 
     public function winterseason()
     {
-        $animations = animation::season(12,2)->get();
+        $animations = animation::season_OR(12,2)->get();
         return view('animations.index')->with('animations', $animations);
     }
 

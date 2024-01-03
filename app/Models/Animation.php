@@ -30,4 +30,11 @@ class Animation extends Model
                     ->whereMonth('play_time', "<=", $end)
                     ->orderBy('play_time', 'asc');
     }
+
+    public function scopeseason_OR($query, $start, $end)
+    { 
+        return $query->whereMonth('play_time', ">=", $start)
+                    ->orwhereMonth('play_time', "<=", $end)
+                    ->orderBy('play_time', 'asc');
+    }
 }
