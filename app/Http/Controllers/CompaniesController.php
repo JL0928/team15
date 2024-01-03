@@ -78,6 +78,7 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
         $company = company::findOrFail($id);
         return view('companies.edit', ['company' =>$company]);
     }
