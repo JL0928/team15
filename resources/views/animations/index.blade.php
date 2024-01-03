@@ -7,11 +7,17 @@
 @section('animations_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('animations.create') }}">新增動畫</a>
-    <a href="{{ route('animations.index') }}">所有動畫</a>
+    <a href="{{ route('animations.index') }}">所有動畫</a></br>
     <a href="{{ route('animations.spring_season') }}">春季動畫</a>
     <a href="{{ route('animations.summer_season') }}">夏季動畫</a>
     <a href="{{ route('animations.fall_season') }}">秋季動畫</a>
     <a href="{{ route('animations.winter_season') }}">冬季動畫</a>
+    <form action="{{ url('animations/type') }}" method='POST'>
+        {!! Form::label('type','選取類別:') !!}
+        {!! Form::select('type',$types, ['class'=>'form-control']) !!}
+        <input class="btn btn-default" type="submit" value="查詢" />
+        @csrf
+    </form>
 </div>
 <table>
     <tr>

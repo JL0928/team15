@@ -18,37 +18,49 @@ class AnimationsController extends Controller
     {
         //從Model拿資料
         $animations = Animation::all();
+        $types = Animation::allTypes()->pluck('animations.type','animations.type');
         //送到view
-        return view('animations.index')->with('animations',$animations);
+        return view('animations.index',['animations' => $animations, 'types' => $types]);
+    }
+
+    public function type(Request $request)
+    {
+        $animations = Animation::type($request->input('type'))->get();
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
+        return view('animations.index', ['animations' => $animations, 'types'=>$types]);
     }
 
     public function spring_season()
     {   
         //get data from model
         $animations = Animation::Season(3,5)->get();
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         //take date to view
-        return view('animations.index')->with('animations',$animations);
+        return view('animations.index', ['animations' => $animations, 'types'=>$types]);
     }
     public function summer_season()
     {   
         //get data from model
         $animations = Animation::Season(6,8)->get();
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         //take date to view
-        return view('animations.index')->with('animations',$animations);
+        return view('animations.index', ['animations' => $animations, 'types'=>$types]);
     }
     public function fall_season()
     {   
         //get data from model
         $animations = Animation::Season(9,11)->get();
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         //take date to view
-        return view('animations.index')->with('animations',$animations);
+        return view('animations.index', ['animations' => $animations, 'types'=>$types]);
     }
     public function winter_season()
     {   
         //get data from model
         $animations = Animation::SeasonSP(12,2)->get();
+        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         //take date to view
-        return view('animations.index')->with('animations',$animations);
+        return view('animations.index', ['animations' => $animations, 'types'=>$types]);
     }
 
     /**

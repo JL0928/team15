@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder\strpos;
 
 class Animation extends Model
 {
@@ -34,6 +35,16 @@ class Animation extends Model
     {
         return $query->whereMonth('play_time',">=",$M_start)->orwhereMonth('play_time',"<=",$M_end)->orderBy('play_time','asc');
 
+    }
+
+    public function scopeAlltypes($query)
+    {
+        return $query->select('type')->groupBy('type');
+    }
+
+    public function scopetype($query, $type)
+    {
+        return $query->where('type','=',$type);
     }
     
 }

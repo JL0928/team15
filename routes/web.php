@@ -39,6 +39,8 @@ Route::get('animations/spring_season',[AnimationsController::class,'spring_seaso
 Route::get('animations/summer_season',[AnimationsController::class,'summer_season'])->name('animations.summer_season'); //夏
 Route::get('animations/fall_season',[AnimationsController::class,'fall_season'])->name('animations.fall_season');       //秋
 Route::get('animations/winter_season',[AnimationsController::class,'winter_season'])->name('animations.winter_season'); //冬
+//類別找動畫
+Route::post('animations/type',[AnimationsController::class,'type'])->name('animations.type');
 
 
 
@@ -59,3 +61,7 @@ Route::patch('companies/update/{id}',[CompaniesController::class,'update'])->whe
 Route::post('companies/store',[CompaniesController::class,'store'])->where('id','[0-9]+')->name('companies.store');
 //顯示10年以上的公司
 Route::get('companies/up10years',[CompaniesController::class,'up10years'])->name('companies.up10years');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
