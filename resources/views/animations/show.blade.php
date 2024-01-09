@@ -2,11 +2,11 @@
 
 @section('title','顯示特定動畫')
 
-@section('animate_theme','您所選取的動畫資料')
-
-
 @section('animations_contents')
-<h1>顯示單一動畫</h1>
+<div style = "padding:none;font-size:40px;font-weight:bold;">
+    您所選取的動畫資料:
+</div></br>
+<h2 style = "font-weight:bold">-顯示單一動畫-</h2>
 動畫編號:{{ $animation -> id}}<br/>
 動畫名稱:{{ $animation -> name}}<br/>
 動畫類型:{{ $animation -> type}}<br/>

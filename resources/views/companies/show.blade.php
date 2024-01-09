@@ -2,21 +2,21 @@
 
 @section('title','顯示特定動畫公司')
 
-@section('animate_theme','您所選取的動畫公司資料')
-
-
 @section('animations_contents')
-<h1>顯示單一動畫公司</h1>
+<div style = "padding:none;font-size:40px;font-weight:bold;">
+    您所選取的動畫公司資料:
+</div></br>
+<h2 style = "font-weight:bold">-顯示單一動畫公司-</h2>
 公司編號:{{ $company -> id}}<br/>
 公司名稱:{{ $company -> name}}<br/>
 公司成立日期:{{ $company -> create}}<br/>
 創辦人:{{ $company -> founder}}<br/>
 總部地址:{{ $company -> head}}<br/>
-官方網站網址:{{ $company -> address}}<br/>
+官方網站網址:{{ $company -> address}}<br/><br/>
 
-<h1>{{ $company -> name}}的所有動畫</h1>
+<h2 style = "font-weight:bold">-{{ $company -> name}}的所有動畫- </h2>
 
-<table>
+<table class = "table table-hover">
     <tr>
         <th>編號</th>
         <th>名稱</th>
