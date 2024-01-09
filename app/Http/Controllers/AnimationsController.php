@@ -25,6 +25,7 @@ class AnimationsController extends Controller
         return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
+
     public function type(Request $request)
     {
         $animations = Animation::type($request->input('type'))->get();
@@ -33,31 +34,35 @@ class AnimationsController extends Controller
     }
 
     public function springseason()
-    {
-        $animations = animation::season(3,5)->get();
-        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
-        return view('animations.index', ['animations' => $animations, 'types' => $types]);
+    {   
+        //get data from model
+        $animations = Animation::Season(3,5)->get();
+        //take date to view
+        return view('animations.index')->with('animations',$animations);
     }
 
     public function summerseason()
-    {
-        $animations = animation::season(6,8)->get();
-        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
-        return view('animations.index', ['animations' => $animations, 'types' => $types]);
+    {   
+        //get data from model
+        $animations = Animation::Season(6,8)->get();
+        //take date to view
+        return view('animations.index')->with('animations',$animations);
     }
 
     public function fallseason()
-    {
-        $animations = animation::season(9,11)->get();
-        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
-        return view('animations.index', ['animations' => $animations, 'types' => $types]);
+    {   
+        //get data from model
+        $animations = Animation::Season(9,11)->get();
+        //take date to view
+        return view('animations.index')->with('animations',$animations);
     }
 
     public function winterseason()
-    {
-        $animations = animation::seasonSP(12,2)->get();
-        $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
-        return view('animations.index', ['animations' => $animations, 'types' => $types]);
+    {   
+        //get data from model
+        $animations = Animation::SeasonSP(12,2)->get();
+        //take date to view
+        return view('animations.index')->with('animations',$animations);
     }
 
     /**
@@ -120,6 +125,7 @@ class AnimationsController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
         $animation = animation::findOrFail($id);
         $companies = Company::orderBy('companies.id', 'asc')->pluck('companies.name', 'companies.id');
         $selected_tags = $animation->company->id;
@@ -162,4 +168,6 @@ class AnimationsController extends Controller
         $animation->delete();
         return redirect('animations');
     }
-}
+
+
+    }

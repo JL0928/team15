@@ -56,20 +56,20 @@
 
         .bg-white {
             --bg-opacity: 1;
-            background-color: #fff;
-            background-color: rgba(255, 255, 255, var(--bg-opacity))
+            background-color: #f5f1bc;
+            background-color: rgba(245, 241, 188, var(--bg-opacity))
         }
 
         .bg-gray-100 {
             --bg-opacity: 1;
-            background-color: #f7fafc;
-            background-color: rgba(247, 250, 252, var(--bg-opacity))
+            background-color:  #87bd9d;
+            background-color: rgba(135,189,157, var(--bg-opacity))
         }
 
         .border-gray-200 {
             --border-opacity: 1;
-            border-color: #edf2f7;
-            border-color: rgba(237, 242, 247, var(--border-opacity))
+            border-color: #A5D2FF;
+            border-color: rgba(165, 210, 255, var(--border-opacity))
         }
 
         .border-t {

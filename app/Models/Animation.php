@@ -26,6 +26,8 @@ class Animation extends Model
         return $this->belongsTo('App\Models\Company', 'cp_id', 'id');
     }
 
+
+    
     public function scopeseason($query, $start, $end)
     {
         return $query->whereMonth('play_time', ">=", $start)
