@@ -5,15 +5,19 @@
 @section('animate_theme','動畫公司')
 
 @section('animations_contents')
-<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-    @can('admin')
-    <a href="{{ route('companies.create') }}">新增公司</a>
-    @endcan
-    <a href="{{ route('companies.index') }}">所有公司</a>
+<div style = "border:2px black solid; padding:5px">
+<th><span style="font-size:26px;font-weight:bold;">篩選項目:</span></th></br> 
+    <a href="{{ route('companies.index') }}">所有公司</a></br>
     <a href="{{ route('companies.up10years') }}">成立10年以上的公司</a>
 </div>
-<table>
-    <tr>
+@can('admin')
+<div style = "border:2px black solid; padding:1px">
+    <th>管理員工具:</th>
+    <a href="{{ route('companies.create') }}">新增公司</a></br>
+</div>
+@endcan
+<table class = "table table-hover">
+    <tr style = "background-color:#E8E8E8">
         <th>編號</th>
         <th>名稱</th>
         <th>成立日期</th>

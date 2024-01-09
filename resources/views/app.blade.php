@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -418,7 +420,7 @@
                 <div class="p-6">
                     @include('header')
                 </div>
-                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                <div class="p-2 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l" style = "font-size:40px;font-weight:bolder;letter-spacing:20px;text-align:center">
                     @yield('animate_theme')
                 </div>
                 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
