@@ -17,7 +17,7 @@ class AnimationsController extends Controller
     public function index()
     {
         //從Model拿資料
-        $animations = Animation::all();
+        $animations = Animation::paginate(25);
         $types = Animation::allTypes()->pluck('animations.type','animations.type');
         //送到view
         return view('animations.index',['animations' => $animations, 'types' => $types]);
@@ -33,7 +33,7 @@ class AnimationsController extends Controller
     public function spring_season()
     {   
         //get data from model
-        $animations = Animation::Season(3,5)->get();
+        $animations = Animation::Season(3,5)->paginate(25);
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         //take date to view
         return view('animations.index', ['animations' => $animations, 'types'=>$types]);
@@ -41,7 +41,7 @@ class AnimationsController extends Controller
     public function summer_season()
     {   
         //get data from model
-        $animations = Animation::Season(6,8)->get();
+        $animations = Animation::Season(6,8)->paginate(25);
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         //take date to view
         return view('animations.index', ['animations' => $animations, 'types'=>$types]);
@@ -49,7 +49,7 @@ class AnimationsController extends Controller
     public function fall_season()
     {   
         //get data from model
-        $animations = Animation::Season(9,11)->get();
+        $animations = Animation::Season(9,11)->paginate(25);
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         //take date to view
         return view('animations.index', ['animations' => $animations, 'types'=>$types]);
@@ -57,7 +57,7 @@ class AnimationsController extends Controller
     public function winter_season()
     {   
         //get data from model
-        $animations = Animation::SeasonSP(12,2)->get();
+        $animations = Animation::SeasonSP(12,2)->paginate(25);
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         //take date to view
         return view('animations.index', ['animations' => $animations, 'types'=>$types]);

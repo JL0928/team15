@@ -17,14 +17,14 @@ class CompaniesController extends Controller
     public function index()
     {
         //從Model拿資料
-        $companies = Company::all();
+        $companies = Company::paginate(25);
         //送到view
         return view('companies.index')->with('companies',$companies);
     }
 
     public function up10years()
     {
-        $companies = Company::Years(now()->subYear(10))->get();
+        $companies = Company::Years(now()->subYear(10))->paginate(25);
         return view('companies.index')->with('companies',$companies);
     }
     

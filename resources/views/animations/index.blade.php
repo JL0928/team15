@@ -71,4 +71,5 @@
         
     @endforeach
 </table>
+{{ $animations -> links() }}
 @endsection

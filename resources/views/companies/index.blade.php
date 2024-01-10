@@ -59,5 +59,6 @@
 
     @endforeach
 </table>
+{{ $companies -> links() }}
 @endsection
 
