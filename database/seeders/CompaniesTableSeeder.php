@@ -124,7 +124,7 @@ class CompaniesTableSeeder extends Seeder
             $founder = $this->generateRandomFounder();
             $head = $this->generateRandomHead();
             $address = $this->generateRandomAddress();
-            $create = Carbon::now()->subYears()->subMonths(rand(0, 12))->subRealDays(rand(0, 31));
+            $create = Carbon::now()->subYears(rand(5,15))->subMonths(rand(0, 12))->subRealDays(rand(0, 31));
             $created_at = Carbon::now();
             $updated_at = Carbon::now();
             DB::table('companies')->insert([

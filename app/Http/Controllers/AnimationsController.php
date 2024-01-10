@@ -18,7 +18,7 @@ class AnimationsController extends Controller
     public function index()
     {
         //從 Model 拿資料
-        $animations = Animation::all();
+        $animations = Animation::paginate(25);
         $types = Animation::allTypes()->pluck('animations.type', 'animations.type');
         //把資料給 view
         //to-do
@@ -27,35 +27,35 @@ class AnimationsController extends Controller
 
     public function type(Request $request)
     {
-        $animations = Animation::type($request->input('type'))->get();
+        $animations = Animation::type($request->input('type'))->paginate(25);
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         return view('animations.index', ['animations' => $animations, 'types'=>$types]);
     }
 
     public function springseason()
     {
-        $animations = animation::season(3,5)->get();
+        $animations = animation::season(3,5)->paginate(25);
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     public function summerseason()
     {
-        $animations = animation::season(6,8)->get();
+        $animations = animation::season(6,8)->paginate(25);
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     public function fallseason()
     {
-        $animations = animation::season(9,11)->get();
+        $animations = animation::season(9,11)->paginate(25);
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }
 
     public function winterseason()
     {
-        $animations = animation::seasonSP(12,2)->get();
+        $animations = animation::seasonSP(12,2)->paginate(25);
         $types = Animation::alltypes()->pluck('animations.type', 'animations.type');
         return view('animations.index', ['animations' => $animations, 'types' => $types]);
     }

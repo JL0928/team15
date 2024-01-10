@@ -23,7 +23,7 @@
     </form> 
 </div>
 
-<table>
+<table class = "table table-hover">
     <tr>
         <th>編號</th>
         <th>名稱</th>
@@ -69,4 +69,5 @@
     </tr>
     @endforeach
 </table>
+{{ $animations->links() }}
 @endsection

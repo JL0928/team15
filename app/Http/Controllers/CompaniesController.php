@@ -23,6 +23,12 @@ class CompaniesController extends Controller
         return view('companies.index')->with('companies', $companies);
     }
 
+    public function up10years()
+    {
+        $companies = Company::Years(now()->subYear(10))->get();
+        return view('companies.index')->with('companies', $companies);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

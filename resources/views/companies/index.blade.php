@@ -11,6 +11,7 @@
     <a href="{{ route('companies.create') }}">新增公司</a>
     @endcan
     <a href="{{ route('companies.index') }}">所有公司</a>
+    <a href="{{ route('companies.up10years') }}">資深公司</a>
 </div>
 
 <table>
