@@ -4,7 +4,7 @@
 
 @section('animate_theme','編輯中的公司資料')
 
-@section('animations_contents')
+@section('animations_BG_colors')
     @include('message.list')
     {!! Form::model($company, ['method'=>'PATCH', 'action'=>['\App\Http\Controllers\CompaniesController@update',$company->id]]) !!}
     @include('companies.form',['submitButtonText'=>"更新公司資料"])

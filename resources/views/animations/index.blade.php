@@ -5,7 +5,7 @@
 @section('animate_theme','動畫列表')
 
 @section('animations_contents')
-<div style = "border:2px black solid; padding:5px">
+<div style = "border:2px #FFCF78 solid;border-radius:10px; padding:5px;background-color:#FFDA96">
     <th><span style="font-size:26px;font-weight:bold;">篩選項目:</span></th></br>    
     <a href="{{ route('animations.index') }}" >所有動畫</a></br>
     <a href="{{ route('animations.spring_season') }}">春季動畫</a>
@@ -18,29 +18,30 @@
         <input class="btn btn-default" type="submit" value="查詢" />
         @csrf
     </form>
-</div>
-@can('admin')
-<div style = "border:2px black solid; padding:1px">
-    <th>管理員工具:</th>
-    <a href="{{ route('animations.create') }}">新增動畫</a>
-</div>
+    @can('admin')
+    <div style = "border:2px black dashed; padding:1px">
+        <th>管理員工具:</th>
+        <a href="{{ route('animations.create') }}">新增動畫</a>
+    </div>
 @endcan
-<table class = "table table-hover">
-    <tr style = "background-color:#E8E8E8">
-        <th>編號</th>
-        <th>名稱</th>
-        <th>類型</th>
-        <th>原作</th>
-        <th>導演</th>
-        <th>集數</th>
-        <th>動畫製作</th>
-        <th>首次播出時間</th>
-        <th>操作1</th>
+</div></br>
+
+<table class = "table table-hover" style = "background-color:#FFE8BF;border-radius:20px;border-bottom:1px #ccc solid">
+    <tr style = "background-color:#FFDA96">
+        <th style = "border-bottom:1px black solid;">編號</th>
+        <th style = "border-bottom:1px black solid;">名稱</th>
+        <th style = "border-bottom:1px black solid;">類型</th>
+        <th style = "border-bottom:1px black solid;">原作</th>
+        <th style = "border-bottom:1px black solid;">導演</th>
+        <th style = "border-bottom:1px black solid;">集數</th>
+        <th style = "border-bottom:1px black solid;">動畫製作</th>
+        <th style = "border-bottom:1px black solid;">首次播出時間</th>
+        <th style = "border-bottom:1px black solid;">操作1</th>
         @can('admin')
-        <th>操作2</th>
-        <th>操作3</th>
+        <th style = "border-bottom:1px black solid;">操作2</th>
+        <th style = "border-bottom:1px black solid;">操作3</th>
         @elsecan('manager')
-        <th>操作2</th>
+        <th style = "border-bottom:1px black solid;">操作2</th>
         @endcan
     </tr>
     @foreach($animations as $animation)

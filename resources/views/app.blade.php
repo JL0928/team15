@@ -413,9 +413,10 @@
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-            <img src={{ URL::asset('images/animation_title_image.jpg') }} width="100%"/>
+            <img src={{ URL::asset('images/animation_title_image.jpg') }} width="100%" style = "border-radius:5px;"/>
         </div>
         <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+
             <div class="grid grid-cols-2 md:grid-cols-1">
                 <div class="p-6">
                     @include('header')
@@ -423,9 +424,13 @@
                 <div class="p-2 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l" style = "font-size:40px;font-weight:bolder;letter-spacing:20px;text-align:center">
                     @yield('animate_theme')
                 </div>
-                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l" >
                     @yield('animations_contents')
                 </div>
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l" style = "border:2px #FFCF78 solid;border-radius:10px; padding:5px;background-color:#FFE8BF">
+                    @yield('animations_BG_colors')
+                </div>
+
             </div>
         </div>
 
