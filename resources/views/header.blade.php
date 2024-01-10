@@ -1,5 +1,4 @@
 <div class="flex items-center">
-    
     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
          viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
         <path
@@ -8,7 +7,7 @@
 
     <div class="ml-4 text-lg leading-7 font-semibold">
         <a href="{{ route('animations.index') }}" class="ml-1 underline">
-           所有動畫
+            所有動漫
         </a>
     </div>
 </div>
@@ -22,7 +21,7 @@
 
     <div class="ml-4 text-lg leading-7 font-semibold">
         <a href="{{ route('companies.index') }}" class="ml-1 underline">
-           製作公司
+            所有公司
         </a>
     </div>
 </div>

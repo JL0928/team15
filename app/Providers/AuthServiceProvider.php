@@ -25,18 +25,20 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-                //system admin Gate rule
-                Gate::define('admin', function($user) {
-                    return $user->role === User::ROLE_ADMIN;
-                });
-                //system manager Gate rule
-                Gate::define('manager', function ($user) {
-                    return $user->role === User::ROLE_MANAGER;
-                });
-        
-                // system user Gate rule
-                Gate::define('user', function ($user) {
-                    return $user->role === User::ROLE_USER;
-                });
+
+        // 系統管理者 Gate 規則
+        Gate::define('admin', function ($user) {
+            return $user->role === User::ROLE_ADMIN;
+        });
+
+        // 一般管理者 Gate 規則
+        Gate::define('manager', function ($user) {
+            return $user->role === User::ROLE_MANAGER;
+        });
+
+        // 一般使用者 Gate 規則
+        Gate::define('user', function ($user) {
+            return $user->role === User::ROLE_USER;
+        });
     }
 }

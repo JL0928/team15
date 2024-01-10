@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', '動畫資訊網站')</title>
+    <title>@yield('title')</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -56,20 +56,20 @@
 
         .bg-white {
             --bg-opacity: 1;
-            background-color: #f5f1bc;
-            background-color: rgba(245, 241, 188, var(--bg-opacity))
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, var(--bg-opacity))
         }
 
         .bg-gray-100 {
             --bg-opacity: 1;
-            background-color:  #87bd9d;
-            background-color: rgba(135,189,157, var(--bg-opacity))
+            background-color: #f7fafc;
+            background-color: rgba(247, 250, 252, var(--bg-opacity))
         }
 
         .border-gray-200 {
             --border-opacity: 1;
-            border-color: #A5D2FF;
-            border-color: rgba(165, 210, 255, var(--border-opacity))
+            border-color: #edf2f7;
+            border-color: rgba(237, 242, 247, var(--border-opacity))
         }
 
         .border-t {
@@ -411,7 +411,7 @@
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-            <img src={{ URL::asset('images/anime.jpg') }} width="100%"/>
+            <img src={{ URL::asset('images/animation_title_image.jpg') }} width="100%"/>
         </div>
         <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
             <div class="grid grid-cols-2 md:grid-cols-1">
@@ -419,10 +419,10 @@
                     @include('header')
                 </div>
                 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                    @yield('am_theme')
+                    @yield('animations_theme')
                 </div>
                 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                    @yield('am_contents')
+                    @yield('animations_contents')
                 </div>
             </div>
         </div>

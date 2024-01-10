@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimationsController;
 use App\Http\Controllers\CompaniesController;
-
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -41,11 +41,11 @@ Route::middleware(['auth'])->group(function(){
     //修改動畫
     Route::patch('animations/update/{id}', [AnimationsController::class,'update'])->where('id', '[0-9]+')->name('animations.update');
     //儲存動畫
-    Route::post('animations/store', [AnimationsController::class,'store'])->where('id', '[0-9]+')->name('animations.store');
+    Route::post('animations/store', [AnimationsController::class,'store'])->where('id', '[0-9]+')->name('animations.store')->middleware('can:admin');
     //刪除單一
-    Route::delete('animations/delete/{id}', [AnimationsController::class,'destroy'])->where('id', '[0-9]+')->name('animations.destroy');
+    Route::delete('animations/delete/{id}', [AnimationsController::class,'destroy'])->where('id', '[0-9]+')->name('animations.destroy')->middleware('can:admin');
     //新增表單
-    Route::get('animations/create', [AnimationsController::class,'create'])->name('animations.create');
+    Route::get('animations/create', [AnimationsController::class,'create'])->name('animations.create')->middleware('can:admin');
 
     //顯示所有
     Route::get('companies',[CompaniesController::class,'index'])->name('companies.index');
@@ -56,11 +56,13 @@ Route::middleware(['auth'])->group(function(){
     //修改公司
     Route::patch('companies/update/{id}', [CompaniesController::class,'update'])->where('id', '[0-9]+')->name('companies.update');
     //儲存公司
-    Route::post('companies/store', [CompaniesController::class,'store'])->where('id', '[0-9]+')->name('companies.store');
+    Route::post('companies/store', [CompaniesController::class,'store'])->where('id', '[0-9]+')->name('companies.store')->middleware('can:admin');
     //刪除單一
-    Route::delete('companies/delete/{id}', [CompaniesController::class,'destroy'])->where('id', '[0-9]+')->name('companies.destroy');
+    Route::delete('companies/delete/{id}', [CompaniesController::class,'destroy'])->where('id', '[0-9]+')->name('companies.destroy')->middleware('can:admin');
     //新增表單
-    Route::get('companies/create', [CompaniesController::class,'create'])->name('companies.create');
+    Route::get('companies/create', [CompaniesController::class,'create'])->name('companies.create')->middleware('can:admin');
+    //資深公司
+    Route::get('companies/up10years', [CompaniesController::class,'up10years'])->name('companies.up10years');
 });
 
 Auth::routes();
