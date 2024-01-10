@@ -13,7 +13,7 @@ class Animation extends Model
     protected $fillable = [
         'name',
         'type',
-        'orgin',
+        'orign',
         'dir',
         'ep_num',
         'cp_id',
