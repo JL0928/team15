@@ -61,13 +61,7 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('companies/delete/{id}', [CompaniesController::class,'destroy'])->where('id', '[0-9]+')->name('companies.destroy');
     //新增表單
     Route::get('companies/create', [CompaniesController::class,'create'])->name('companies.create');
-
-    Route::get('companies/up10years',[CompaniesController::class,'up10years'])->name('companies.up10years');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

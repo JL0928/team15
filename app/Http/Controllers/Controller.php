@@ -14,7 +14,7 @@ class Controller extends BaseController
 
     public function edit($id)
     {
-        if(Gate::allows('user'))
+        if (Gate::allows('user'))
             abort(401);
     }
 }

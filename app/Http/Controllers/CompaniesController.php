@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use App\Models\Animation;
 use App\Models\Company;
 use App\Http\Requests\CreateCompanyRequest;
-use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
 {
@@ -23,13 +22,6 @@ class CompaniesController extends Controller
         //to-do
         return view('companies.index')->with('companies', $companies);
     }
-
-    public function up10years()
-    {
-        $companies = Company::Years(now()->subYear(10))->get();
-        return view('companies.index')->with('companies',$companies);
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -86,12 +78,9 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
-        parent::edit($id);
         $company = company::findOrFail($id);
         return view('companies.edit', ['company' =>$company]);
     }
-
-    
 
     /**
      * Update the specified resource in storage.
